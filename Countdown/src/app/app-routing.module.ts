@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'countdown',
     loadChildren: () => import('./pages/countdown/countdown.module').then( m => m.CountdownPageModule)
   },
+  {
+    path: 'create-event',
+    loadChildren: () => import('./pages/create-event/create-event.module').then( m => m.CreateEventPageModule)
+  },
 ];
 
 @NgModule({
