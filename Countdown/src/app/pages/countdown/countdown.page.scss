@@ -11,7 +11,7 @@ ion-content {
     // Top Area
     .top {
         text-align: center;
-        padding: 9em 0;
+        padding: 4em 0;
         color: floralwhite;
 
         .top_count {
@@ -22,6 +22,7 @@ ion-content {
         }
         .top_title {
             font-size: 2em;
+            // overflow:hidden;
         }
         .top_note {
             font-size: 0.8em;
