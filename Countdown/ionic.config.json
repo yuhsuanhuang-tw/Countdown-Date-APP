@@ -1,5 +1,7 @@
 {
   "name": "Countdown",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
