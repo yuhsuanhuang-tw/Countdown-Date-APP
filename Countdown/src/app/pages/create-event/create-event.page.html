@@ -1,66 +1,45 @@
 <ion-header>
   <ion-toolbar>
+    <ion-icon class="white-icon" name="arrow-back" size="large" slot="start" routerLink="/countdown" routerDirection="back"></ion-icon>
     <ion-title>Create Event</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-list>
-    <ion-item>
-      <ion-label slot="start" for="top">Top Event</ion-label>
-      <ion-toggle slot="end" color="danger" id="top" [(ngModel)]="event.top"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label slot="start" for="title">Title</ion-label>
-      <ion-input slot="end" class="text-right" placeholder="Event Title" id="title" [(ngModel)]="event.title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label slot="start" for="note">Note</ion-label>
-      <ion-input slot="end" class="text-right" placeholder="Event Note" id="note" [(ngModel)]="event.note"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label slot="start" for="start">Start Date</ion-label>
-      <ion-datetime slot="end" display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY" id="start" [(ngModel)]="event.startDate">
-      </ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label slot="start" for="finish">Event End</ion-label>
-      <ion-toggle slot="end" color="success" id="finish" [(ngModel)]="event.eventEnd"></ion-toggle>
-    </ion-item>
-    <ion-item *ngIf="event.eventEnd">
-      <ion-label slot="start" for="end">End Date</ion-label>
-      <ion-datetime slot="end" display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY" id="end" [(ngModel)]="event.endDate">
-      </ion-datetime>
-    </ion-item>
-  </ion-list> -->
 
-  <form>
-    <ion-item lines="full">
+  <form [formGroup]="eventForm" (ngSubmit)="addEvent()">
+    <ion-item>
       <ion-label>Top Event</ion-label>
-      <ion-toggle name="top" color="danger" [(ngModel)]="event.top"></ion-toggle>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label>Title</ion-label>
-      <ion-input class="padding_left" name="title" placeholder="Event Title" [(ngModel)]="event.title"></ion-input>
+      <ion-toggle name="top" color="danger" formControlName="top"></ion-toggle>
     </ion-item>
     <ion-item>
-      <ion-label>Note</ion-label>
-      <ion-input class="padding_left" name="note" placeholder="Event Note" [(ngModel)]="event.note"></ion-input>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input class="padding_left" formControlName="title" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Note</ion-label>
+      <ion-input class="padding_left" formControlName="note" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Start Date</ion-label>
-      <ion-datetime name="startDate" display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY" [(ngModel)]="event.startDate">
+      <ion-datetime display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY" formControlName="startDate">
       </ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Event End</ion-label>
-      <ion-toggle name="eventEnd" color="success" [(ngModel)]="event.eventEnd"></ion-toggle>
+      <ion-toggle color="success" formControlName="eventEnd"></ion-toggle>
     </ion-item>
-    <ion-item *ngIf="event.eventEnd">
+    <ion-item *ngIf="eventForm.value.eventEnd">
       <ion-label>End Date</ion-label>
-      <ion-datetime name="endDate" display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY"  [(ngModel)]="event.endDate">
+      <ion-datetime display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY"  formControlName="endDate">
       </ion-datetime>
     </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" shape="full" expand="block">Add Event</ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 
 </ion-content>
