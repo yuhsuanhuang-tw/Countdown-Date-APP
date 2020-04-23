@@ -118,4 +118,33 @@ export class DbService {
     })
   }
 
+
+  //Top Event
+  getTopEvent(): Promise<Event> {
+    let sql = `
+    SELECT * 
+    FROM event 
+    WHERE top = 1;`;
+
+    return this.database.executeSql(sql, []).then(data => {
+      let event: Event;
+
+      if (data.rows.length > 0) {
+        console.log('top length > 0')
+        event = {
+          id: data.rows.item(0).id,
+          title: data.rows.item(0).title,
+          note: data.rows.item(0).note,
+          startDate: data.rows.item(0).startDate,
+          eventEnd: data.rows.item(0).eventEnd,
+          endDate: data.rows.item(0).endDate,
+          top: data.rows.item(0).top,
+          orders: data.rows.item(0).orders,
+          counts: data.rows.item(0).counts
+        };
+      }
+      return event;
+    });
+  }
+
 }

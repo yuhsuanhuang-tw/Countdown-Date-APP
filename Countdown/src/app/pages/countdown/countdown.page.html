@@ -14,10 +14,10 @@
         <ion-row>
           <ion-col class="ion-text-center">
             <ion-label class="top_count">
-              {{topCountdown.counts}}<sup>
+              {{topEvent.counts}}<sup>
                 <span>
-                  <ion-icon *ngIf="topCountdown.eventEnd==0" name="arrow-up" class="count-icon-increase"></ion-icon>
-                  <ion-icon *ngIf="topCountdown.eventEnd!=0" name="remove" class="count-icon-increase"></ion-icon>
+                  <ion-icon *ngIf="topEvent.eventEnd==0" name="arrow-up" class="count-icon-increase"></ion-icon>
+                  <ion-icon *ngIf="topEvent.eventEnd==1" name="remove" class="count-icon-increase"></ion-icon>
                 </span></sup>
             </ion-label>
           </ion-col>
@@ -26,15 +26,16 @@
         <ion-row>
           <ion-col size="2"></ion-col>
           <ion-col size="8" class="ion-text-center">
-            <h2 class="top_title">{{topCountdown.title}}</h2>
-            <ion-note class="top_note">{{topCountdown.note}}</ion-note>
+            <h2 class="top_title">{{topEvent.title}}</h2>
+            <ion-note class="top_note">{{topEvent.note}}</ion-note>
           </ion-col>
           <ion-col size="2"></ion-col>
         </ion-row>
       </ion-grid>
     </div>
+    
     <!-- List Area -->
-    <div class="list" *ngIf="events">
+    <div class="list" *ngIf="events.length > 0">
       <ion-list no-lines>
         <ion-item *ngFor="let event of events" [routerLink]="['/', 'detail', event.id]">
           <ion-grid>
@@ -49,7 +50,7 @@
                 <ion-label size="4" class="count">{{event.counts}}
                   <sup>
                     <ion-icon *ngIf="event.eventEnd==0" name="arrow-up" class="count-icon-increase"></ion-icon>
-                    <ion-icon *ngIf="event.eventEnd!=0" name="remove" class="count-icon-stop"></ion-icon>
+                    <ion-icon *ngIf="event.eventEnd==1" name="remove" class="count-icon-stop"></ion-icon>
                   </sup>
                 </ion-label>
               </ion-col>
