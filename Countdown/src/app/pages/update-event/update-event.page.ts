@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-update-event',
   templateUrl: './update-event.page.html',
@@ -18,9 +20,18 @@ export class UpdateEventPage implements OnInit {
     eventEnd: false
   };
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    console.log("ngOnInit");
+    this.route.paramMap.subscribe(params => {
+      let eventId = params.get('id');
+      console.log(eventId);
+
+      //TODO get data from database
+    })
   }
 
 }

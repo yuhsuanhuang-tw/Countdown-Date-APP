@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Countdown</ion-title>
+    <ion-icon class="white-icon" name="add" size="large" slot="end" routerLink="/create-event" routerDirection="forward" [class.icon-hide]="!reorder"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -35,7 +36,7 @@
     <!-- List Area -->
     <div class="list" *ngIf="events">
       <ion-list no-lines>
-        <ion-item *ngFor="let event of events">
+        <ion-item *ngFor="let event of events" [routerLink]="['/', 'detail', event.id]">
           <ion-grid>
             <ion-row class="event_info">
               <ion-col size="9">

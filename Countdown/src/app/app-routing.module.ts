@@ -14,11 +14,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/create-event/create-event.module').then( m => m.CreateEventPageModule)
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     loadChildren: () => import('./pages/detail/detail.module').then( m => m.DetailPageModule)
   },
   {
-    path: 'update-event',
+    path: 'update-event/:id',
     loadChildren: () => import('./pages/update-event/update-event.module').then( m => m.UpdateEventPageModule)
   },
 ];
