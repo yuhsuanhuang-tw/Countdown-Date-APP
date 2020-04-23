@@ -1,0 +1,24 @@
+ion-header {
+    text-align: center;
+    ion-toolbar {
+        --background: rgb(222, 226, 227, 0.5);
+        color: floralwhite;
+    }
+}
+
+ion-content {
+    --background: rgba(85, 85, 85, 0.5);
+    form {
+        ion-item {
+            --background: transparent;
+            color: floralwhite;
+
+            ion-input {
+                text-align: right;
+            }
+            .padding_left {
+                --padding-start: 5rem;
+            }
+        }
+    }
+}
