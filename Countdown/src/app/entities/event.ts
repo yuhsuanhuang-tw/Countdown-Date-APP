@@ -10,6 +10,6 @@ export interface Event {
     eventEnd: number, //Determine event is end or not end
     endDate: string, //End date
     top: number, //Put this event to the top
-    order: number, //Event sort order
-    count: number //Countdown days or finished days
+    orders: number, //Event sort order
+    counts: number //Countdown days or finished days
 }
