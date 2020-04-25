@@ -1,56 +1,62 @@
-ion-header {
-    text-align: center;
-    ion-toolbar {
-        --background: rgb(222, 226, 227, 0.5);
-        color: floralwhite;
-    }
-}
-
-ion-content {
-    --background: transparent;
-    // Top Area
-    .top {
+:host {
+    background-image: url(../../../assets/images/sydney-cover.jpg);
+    background-size: cover;
+    background-position: center;
+    
+    ion-header {
         text-align: center;
-        padding: 4em 0;
-        color: floralwhite;
+        ion-toolbar {
+            --background: rgb(222, 226, 227, 0.5);
+            color: floralwhite;
+        }
+    }
 
-        .top_count {
-            font-size: 3em;
-            span {
-                font-size: 1rem;
+    ion-content {
+        --background: transparent;
+        // Top Area
+        .top {
+            text-align: center;
+            padding: 4em 0;
+            color: floralwhite;
+
+            .top_count {
+                font-size: 3em;
+                span {
+                    font-size: 1rem;
+                }
+            }
+            .top_title {
+                font-size: 2em;
+                // overflow:hidden;
+            }
+            .top_note {
+                font-size: 0.8em;
+                color: #a3a3a3;
             }
         }
-        .top_title {
-            font-size: 2em;
-            // overflow:hidden;
-        }
-        .top_note {
-            font-size: 0.8em;
-            color: #a3a3a3;
-        }
-    }
-    //List area
-    .content {
-        ion-list {
-            background: rgba(85, 85, 85, 0.5);
+        //List area
+        .content {
+            ion-list {
+                background: rgba(85, 85, 85, 0.5);
 
-            ion-item {
-                --background: transparent;
-                font-size: 1.2rem;
-                color: floralwhite;
+                ion-item {
+                    --background: transparent;
+                    font-size: 1.2rem;
+                    color: floralwhite;
 
-                .event_info {
-                    .event_title {
-                        font-size: 1.2rem;
-                        font-weight: 500;
-                    }
-                    .event_note {
-                        font-size: 0.8rem;
-                        font-weight: 400;
-                        padding-left: 0.5rem;
-                    }
-                    .text_right {
-                        text-align: right;
+                    .event_info {
+                        .event_title {
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                        }
+                        .event_note {
+                            font-size: 0.8rem;
+                            font-weight: 400;
+                            padding-left: 0.5rem;
+                        }
+                        .text_right {
+                            text-align: right;
+                        }
                     }
                 }
             }
