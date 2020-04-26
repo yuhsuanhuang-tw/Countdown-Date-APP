@@ -2,24 +2,35 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
-  // { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  { path: '', redirectTo: 'countdown', pathMatch: 'full' },
+  // {
+  //   path: 'home',
+  //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  // },
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // },
+  {
+    path: '',
+    redirectTo: 'countdown',
+    pathMatch: 'full'
+  },
   {
     path: 'countdown',
     loadChildren: () => import('./pages/countdown/countdown.module').then( m => m.CountdownPageModule)
   },
   {
-    path: 'create-event',
-    loadChildren: () => import('./pages/create-event/create-event.module').then( m => m.CreateEventPageModule)
+    path: 'create',
+    loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
   },
   {
     path: 'detail/:id',
     loadChildren: () => import('./pages/detail/detail.module').then( m => m.DetailPageModule)
   },
   {
-    path: 'update-event/:id',
-    loadChildren: () => import('./pages/update-event/update-event.module').then( m => m.UpdateEventPageModule)
+    path: 'update/:id',
+    loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
   },
 ];
 

@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 //New import
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
-
 import { DbService } from '../../services/db.service';
 
 @Component({
-  selector: 'app-create-event',
-  templateUrl: './create-event.page.html',
-  styleUrls: ['./create-event.page.scss'],
+  selector: 'app-create',
+  templateUrl: './create.page.html',
+  styleUrls: ['./create.page.scss'],
 })
-export class CreateEventPage implements OnInit {
+export class CreatePage implements OnInit {
 
   today = new Date();
   eventForm: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private db: DbService,
     public alertController: AlertController,
@@ -26,6 +24,7 @@ export class CreateEventPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('CreatePage Init');
     this.eventForm = this.formBuilder.group({
       top: false,
       title: '',
@@ -36,16 +35,6 @@ export class CreateEventPage implements OnInit {
       orders: 0,
       counts: 0
     })
-  }
-
-  async titleUndefined() {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Title Error',
-      message: 'Must input <strong>TITLE</strong>.',
-      buttons: ['OK']
-    });
-    await alert.present();
   }
 
   addEvent() {
@@ -78,7 +67,16 @@ export class CreateEventPage implements OnInit {
     this.db.addEvent(data).then(_ => {
       this.router.navigateByUrl('/countdown');
     });
+  }
 
+  async titleUndefined() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Title Error',
+      message: 'Must input <strong>TITLE</strong>.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
 }

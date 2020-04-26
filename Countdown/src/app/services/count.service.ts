@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+//New import
 import { Event } from '../entities/event';
 
 @Injectable({
@@ -60,4 +61,5 @@ export class CountService {
     }
     return events;
   }
+  
 }

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CreateEventPageRoutingModule } from './create-event-routing.module';
+import { CreatePageRoutingModule } from './create-routing.module';
 
-import { CreateEventPage } from './create-event.page';
+import { CreatePage } from './create.page';
 
 //New import
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,9 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateEventPageRoutingModule,
+    CreatePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [CreateEventPage]
+  declarations: [CreatePage]
 })
-export class CreateEventPageModule {}
+export class CreatePageModule {}

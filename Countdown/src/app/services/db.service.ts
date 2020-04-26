@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 //New import
 import {Event} from '../entities/event'
-
 import { Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -23,7 +22,7 @@ export class DbService {
     private platform: Platform, 
     private sqlite: SQLite, 
     private httpClient: HttpClient,
-    private sqlPorter: SQLitePorter,
+    private sqlPorter: SQLitePorter
   ) {
       this.platform.ready().then(() => {
         this.sqlite.create({
@@ -104,9 +103,8 @@ export class DbService {
   }
 
   //Update Event
-  updateEvent(event: Event) {
-    let data = [event.title, event.note, event.startDate, event.eventEnd, event.endDate, event.top, event.orders, event.counts];
-    return this.database.executeSql(`UPDATE event SET title = ?, note = ?, startDate = ?, eventEnd = ?, endDate = ?, top = ?, orders = ?, counts = ? WHERE id = ${event.id}`, data).then(data => {
+  updateEvent(id, data) {
+    return this.database.executeSql(`UPDATE event SET title = ?, note = ?, startDate = ?, eventEnd = ?, endDate = ?, top = ?, orders = ?, counts = ? WHERE id = ${id}`, data).then(data => {
       this.getEvents();
     })
   }
@@ -117,7 +115,6 @@ export class DbService {
       this.getEvents();
     })
   }
-
 
   //Top Event
   getTopEvent(): Promise<Event> {

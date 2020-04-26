@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 //New import
 import { Event } from '../../entities/event';
-
 import { DbService } from '../../services/db.service';
 import { CountService } from '../../services/count.service';
 
@@ -16,11 +15,10 @@ export class CountdownPage implements OnInit {
   events : Event[] = [];
   topEvent = {};
 
-  constructor(
-    private db: DbService,
-  ) { }
+  constructor( private db: DbService ) { }
 
   ngOnInit() {
+    console.log('CountdownPage Init');
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
         this.db.fetchEvents().subscribe(items => {

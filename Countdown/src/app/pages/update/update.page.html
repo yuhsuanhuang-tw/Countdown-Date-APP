@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon class="white-icon" name="arrow-back" size="large" slot="start" [routerLink]="['/detail/'. event.id]'" routerDirection="back"></ion-icon>
+    <ion-title>Create Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="eventForm" (ngSubmit)="addEvent()">
+    <ion-item>
+      <ion-label>Top Event</ion-label>
+      <ion-toggle name="top" color="danger" formControlName="top"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input class="padding_left" formControlName="title" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Note</ion-label>
+      <ion-input class="padding_left" formControlName="note" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start Date</ion-label>
+      <ion-datetime display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY" formControlName="startDate">
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Event End</ion-label>
+      <ion-toggle color="success" formControlName="eventEnd"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="eventForm.value.eventEnd">
+      <ion-label>End Date</ion-label>
+      <ion-datetime display-format="YYYY/MM/DD" picker-format="MMMM DD YYYY"  formControlName="endDate">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" shape="full" expand="block">Add Event</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

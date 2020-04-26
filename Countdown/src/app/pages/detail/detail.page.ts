@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+//New import
 import { Event } from '../../entities/event';
-
 import { ActivatedRoute, Router } from '@angular/router';
+import { DbService } from '../../services/db.service';
+import { CountService } from '../../services/count.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,21 +13,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailPage implements OnInit {
 
-  // data for test
-  countdownEvent: Event = { id: 1, title: "Winnie born", note: "This is a not which describe this event. And try to beyond this area", startDate:"1993-03-31T19:34:50.133-05:00", eventEnd: 1, endDate: "1993-04-20T19:34:50.133-05:00", top: 0, orders: 0, counts: 50 };
+  event: Event;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private db: DbService,
   ) { }
 
   ngOnInit() {
-    console.log("ngOnInit");
+    console.log('DetailPage Init');
     this.route.paramMap.subscribe(params => {
-      let eventId = params.get('id');
-      console.log(eventId);
+      let id = params.get('id');
+      console.log(id);
 
-      //TODO get data from database
+      this.db.getEvent(id).then(data => {
+        this.event = CountService.calculateCountByEvent(data);
+      })
     })
   }
 

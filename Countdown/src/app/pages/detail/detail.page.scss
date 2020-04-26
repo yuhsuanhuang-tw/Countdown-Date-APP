@@ -1,37 +1,43 @@
-ion-header {
-    text-align: center;
-    ion-toolbar {
-        --background: rgb(222, 226, 227, 0.5);
-        color: floralwhite;
-    }
-}
+:host {
+    background-image: url(../../../assets/images/sydney-cover.jpg);
+    background-size: cover;
+    background-position: center;
 
-ion-content {
-    --background: rgba(85, 85, 85, 0.5);
-    div {
-        padding-top: 15%;
-        ion-label {
+    ion-header {
+        text-align: center;
+        ion-toolbar {
+            --background: rgb(222, 226, 227, 0.5);
             color: floralwhite;
         }
-        .top_count {
-            font-size: 3.5em;
-            span {
-                padding-left: -1rem;
-                font-size: 1rem;
+    }
+
+    ion-content {
+        --background: rgba(85, 85, 85, 0.5);
+        div {
+            padding-top: 15%;
+            ion-label {
+                color: floralwhite;
             }
-        }
-        .title {
-            font-size: 1.5em;
-        }
-        .padding_bottom {
-            padding-bottom: 1em;
-            .note {
-                // color: ;
-                font-size: 0.5em;
+            .top_count {
+                font-size: 3.5em;
+                span {
+                    padding-left: -1rem;
+                    font-size: 1rem;
+                }
             }
-        }
-        .date {
-            font-size: 1em;
+            .title {
+                font-size: 1.5em;
+            }
+            .padding_bottom {
+                padding-bottom: 1em;
+                .note {
+                    // color: ;
+                    font-size: 0.5em;
+                }
+            }
+            .date {
+                font-size: 1em;
+            }
         }
     }
 }

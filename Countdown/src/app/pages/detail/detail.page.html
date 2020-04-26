@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Detail</ion-title>
-    <ion-icon name="information" size="large" slot="end" [routerLink]="['/', 'update-event', countdownEvent.id]"></ion-icon>
+    <ion-icon name="information" size="large" slot="end" [routerLink]="['/update/', event.id]"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -12,10 +12,10 @@
       <ion-row class="ion-text-center">
         <ion-col>
           <div>
-            <ion-label class="top_count">{{countdownEvent.counts}}
+            <ion-label class="top_count">{{event.counts}}
               <sup><span>
-                <ion-icon *ngIf="countdownEvent.eventEnd==0" name="arrow-up" class="count-icon-increase"></ion-icon>
-                <ion-icon *ngIf="countdownEvent.eventEnd!=0" name="remove" class="count-icon-stop"></ion-icon>
+                <ion-icon *ngIf="event.eventEnd==0" name="arrow-up" class="count-icon-increase"></ion-icon>
+                <ion-icon *ngIf="event.eventEnd==1" name="remove" class="count-icon-stop"></ion-icon>
               </span></sup>
           </ion-label>
           </div>
@@ -25,26 +25,26 @@
       <!-- Event title -->
       <ion-row class="ion-text-center">
         <ion-col>
-          <ion-label class="title">{{countdownEvent.title}}</ion-label>
+          <ion-label class="title">{{event.title}}</ion-label>
         </ion-col>
       </ion-row>
       <!-- Event note -->
       <ion-row class="ion-text-center padding_bottom">
         <ion-col size="1"></ion-col>
         <ion-col size="10" class="paddingTopZero">
-          <ion-label class="note">{{countdownEvent.note}}</ion-label>
+          <ion-label class="note">{{event.note}}</ion-label>
         </ion-col>
         <ion-col size="1"></ion-col>
       </ion-row>
       <!-- Start Date and End Date -->
       <ion-row class="ion-text-center">
         <ion-col>
-          <ion-label class="date">Start:{{countdownEvent.startDate | date: 'yyyy/MM/dd'}}</ion-label>
+          <ion-label class="date">Start:{{event.startDate | date: 'yyyy/MM/dd'}}</ion-label>
         </ion-col>
       </ion-row>
-      <ion-row class="ion-text-center" *ngIf="countdownEvent.eventEnd!=0">
+      <ion-row class="ion-text-center" *ngIf="event.eventEnd==1">
         <ion-col>
-          <ion-label class="date"> End :{{countdownEvent.endDate | date: 'yyyy/MM/dd'}}</ion-label>
+          <ion-label class="date"> End :{{event.endDate | date: 'yyyy/MM/dd'}}</ion-label>
         </ion-col>
       </ion-row>
     </ion-grid>
